@@ -1,25 +1,45 @@
-let employees = require('../data/employees.js');
+const employees = require('../data/employees.js');
 
 module.exports = function (app) {
-  /**
-   * GET the tablelist 
-   */
+
   app.get('/api/employees', function (req, res) {
     res.json(employees);
   });
 
-  /**
-   * If there are fewer than 5 reservations, add the new reservation to the tablelist
-   * Otherwise add the new reservation to the waitlist
-   */
-  app.post('/api/employees', function (req, res) {
-    if (employees.length < 5) {
-      employees.push(req.body); 
-    } else {
-      employees.push(req.body);
+  app.post("/api/employees", function (req, res) {
+    let match = {
+      name: "",
+      photo: "",
+      employeeDifference: 40
+    };
+
+    const user = req.body;
+    const userScores = user.scores;
+
+    let diffSum;
+
+    for (let i = 0; i < employees.length; i++) {
+      let employee = employees[i];
+      diffSum = 0;
+
+      for (let j = 0; j < employee.scores.length; j++) {
+        const employeeScore = employee.scores[j];
+        const userScore = userScores[j];
+
+        diffSum += Math.abs(
+          parseInt(employeeScore) - parseInt(userScore)
+        );
+      }
+
+      if (diffSum <= match.employeeDifference) {
+        match.name = employee.name;
+        match.photo = employee.photo;
+        match.employeeDifference = diffSum;
+      }
     }
 
-    res.end();
-  });
+    employees.push(user);
 
+    res.json(match);
+  });
 }
