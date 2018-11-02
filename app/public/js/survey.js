@@ -19,17 +19,11 @@ $(function () {
             ]
         };
 
-        console.log(user);
+        $.post('/api/employees', user).then(function (res) {
+            $('#matchName').text(`${res.name}`);
+            $('#matchURL').attr("src", `${res.photo}`);
+        });
 
-        $.ajax({
-            method: 'POST',
-            url: 'api/employees',
-            data: user,
-            success: function () {
-                console.log("yes")
-            }
-        })
-    };
-
-    $('#submit').on('click', pullData)
+    }
+    $('#submit').on('click', pullData);
 });

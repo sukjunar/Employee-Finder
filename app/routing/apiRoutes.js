@@ -6,7 +6,7 @@ module.exports = function (app) {
     res.json(employees);
   });
 
-  app.post("/api/employees", function (req, res) {
+  app.post('/api/employees', function (req, res) {
     let match = {
       name: "",
       photo: "",
@@ -39,7 +39,6 @@ module.exports = function (app) {
     }
 
     employees.push(user);
-
     res.json(match);
   });
 }

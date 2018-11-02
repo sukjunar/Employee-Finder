@@ -65,7 +65,7 @@ module.exports = [
     },
     {
         "name": "Lou Ritter",
-        "photo": "https://media.licdn.com/mpr/mpr/shrinknp_400_400/AAEAAQAAAAAAAAkDAAAAJDhhZTI5NTk2LWQzZjUtNDJjZi1hMTM2LTQ3ZjNmYjE0YmY2NA.jpg",
+        "photo": "https://images.pexels.com/photos/614810/pexels-photo-614810.jpeg?auto=compress&cs=tinysrgb&h=350",
         "scores": [
             "4",
             "3",
@@ -81,7 +81,7 @@ module.exports = [
     },
     {
         "name": "Jordan Biason",
-        "photo": "https://media.licdn.com/mpr/mpr/shrinknp_400_400/AAEAAQAAAAAAAAisAAAAJGUxYzc4YzA0LWQxMzUtNGI4NS04YTFiLTkwYzM0YTZkNzA2NA.jpg",
+        "photo": "https://pmcvariety.files.wordpress.com/2018/01/carey-mulligan1.jpg?w=700",
         "scores": [
             "4",
             "4",
